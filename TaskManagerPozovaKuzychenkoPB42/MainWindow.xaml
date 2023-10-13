@@ -34,19 +34,13 @@
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <Border Grid.Row="0" CornerRadius="5" Width="100" Background="LightGray" HorizontalAlignment="Left" BorderThickness="1" Margin="5 3 0 0" >
-                                    <Label HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center">Sat, Oct 30</Label>
+                                    <Label HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center" Name="DateCreate">Sat, Oct 30</Label>
                                 </Border>
 
-                                <TextBlock Margin="10,0" TextWrapping="Wrap" Grid.Row="2" Background="White" Foreground="Black" HorizontalAlignment="Center">Добавление задачи: Пользователь должен иметь возможность создавать новые задачи, указывая название, описание, приоритет, дедлайн и другие свойства.</TextBlock>
+                                <TextBlock x:Name="Description" Margin="10,0" TextWrapping="Wrap" Grid.Row="2" Background="White" Foreground="Black" HorizontalAlignment="Center">Добавление задачи: Пользователь должен иметь возможность создавать новые задачи, указывая название, описание, приоритет, дедлайн и другие свойства.</TextBlock>
 
                                 <Border Background="LightGray" CornerRadius="0 0 10 10" Grid.Row="3" >
-                                    <Label  Foreground="Gray" HorizontalAlignment="Left">KANB-1005</Label>
-                                </Border>
-                                <Border Grid.Row="0" CornerRadius="5" Width="100" Background="LightGray" HorizontalAlignment="Left" BorderThickness="1" Margin="5 3 0 0" >
-                                    <Label  HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center">Sat, Oct 30</Label>
-                                </Border>
-                                <Border Background="LightGray" CornerRadius="0 0 10 10" Grid.Row="3" >
-                                    <Label  Foreground="Gray" HorizontalAlignment="Left">KANB-1005</Label>
+                                    <Label Foreground="Gray" HorizontalAlignment="Left">KANB-1005</Label>
                                 </Border>
                             </Grid>
                         </Border>
