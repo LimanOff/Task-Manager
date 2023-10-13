@@ -1,0 +1,61 @@
+﻿<Window x:Class="TaskManagerPozovaKuzychenkoPB42.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskManagerPozovaKuzychenkoPB42"
+        mc:Ignorable="d"
+        Title="TaskManager" Height="450" Width="800" Background="LightGray">
+    <StackPanel Orientation="Horizontal">
+        <Border Background="WhiteSmoke" x:Name="thisBorder" CornerRadius="10"  Margin="10,20" Width="300">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="50" ShadowDepth="10" Direction="370" Opacity="0.1" Color="Black" />
+            </Border.Effect>
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Border CornerRadius="5" Background="LightSkyBlue">
+                    <Label Background="Transparent" Content="В процессе" Foreground="White" FontSize="20" BorderThickness="0"/>
+                </Border>
+                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
+                    <ListBox Name="listBox" Margin="5" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                        <Border CornerRadius="10" Width="{Binding ElementName=listBox, Path=ActualWidth}">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="10" ShadowDepth="10" Direction="370" Opacity="0.1" Color="Black" />
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Border Grid.Row="0" CornerRadius="5" Width="100" Background="LightGray" HorizontalAlignment="Left" BorderThickness="1" Margin="5 3 0 0" >
+                                    <Label HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center">Sat, Oct 30</Label>
+                                </Border>
+
+                                <TextBlock Margin="10,0" TextWrapping="Wrap" Grid.Row="2" Background="White" Foreground="Black" HorizontalAlignment="Center">Добавление задачи: Пользователь должен иметь возможность создавать новые задачи, указывая название, описание, приоритет, дедлайн и другие свойства.</TextBlock>
+
+                                <Border Background="LightGray" CornerRadius="0 0 10 10" Grid.Row="3" >
+                                    <Label  Foreground="Gray" HorizontalAlignment="Left">KANB-1005</Label>
+                                </Border>
+                                <Border Grid.Row="0" CornerRadius="5" Width="100" Background="LightGray" HorizontalAlignment="Left" BorderThickness="1" Margin="5 3 0 0" >
+                                    <Label  HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center">Sat, Oct 30</Label>
+                                </Border>
+                                <Border Background="LightGray" CornerRadius="0 0 10 10" Grid.Row="3" >
+                                    <Label  Foreground="Gray" HorizontalAlignment="Left">KANB-1005</Label>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </ListBox>
+                </ScrollViewer>
+                <Border Grid.Row="3" CornerRadius="5" Width="250" Background="White" BorderBrush="Black" BorderThickness="1">
+                    <Button  Background="Transparent" Content="+" FontSize="20" BorderThickness="0"/>
+                </Border>
+            </Grid>
+        </Border>
+    </StackPanel>
+</Window>
