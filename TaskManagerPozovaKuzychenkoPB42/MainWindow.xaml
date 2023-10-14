@@ -5,51 +5,156 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskManagerPozovaKuzychenkoPB42"
         mc:Ignorable="d"
-        Title="TaskManager" Height="450" Width="800" Background="LightGray">
-    <StackPanel Orientation="Horizontal">
-        <Border Background="WhiteSmoke" x:Name="thisBorder" CornerRadius="10"  Margin="10,20" Width="300">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="50" ShadowDepth="10" Direction="370" Opacity="0.1" Color="Black" />
-            </Border.Effect>
-            <Grid Margin="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="35"/>
-                    <RowDefinition/>
-                    <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
-                <Border CornerRadius="5" Background="LightSkyBlue">
-                    <Label Background="Transparent" Content="В процессе" Foreground="White" FontSize="20" BorderThickness="0"/>
-                </Border>
-                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
-                    <ListBox Name="listBox" Margin="5" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-                        <Border CornerRadius="10" Width="{Binding ElementName=listBox, Path=ActualWidth}">
-                            <Border.Effect>
-                                <DropShadowEffect BlurRadius="10" ShadowDepth="10" Direction="370" Opacity="0.1" Color="Black" />
-                            </Border.Effect>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Border Grid.Row="0" CornerRadius="5" Width="100" Background="LightGray" HorizontalAlignment="Left" BorderThickness="1" Margin="5 3 0 0" >
-                                    <Label HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center" Name="DateCreate">Sat, Oct 30</Label>
-                                </Border>
+        Title="TaskManager" Name="Window" Height="450" Width="800" Background="LightGray">
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden" Width="{Binding ElementName=Window, Path=ActualWidth}">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" CanHorizontallyScroll="True">
+            <Border Background="WhiteSmoke" CornerRadius="10"  Margin="10,20" Width="300">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="50" ShadowDepth="10" Direction="370" Opacity="0.1" Color="Black" />
+                </Border.Effect>
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border CornerRadius="5" Background="LightSkyBlue">
+                        <Label Background="Transparent" Content="Сделать" Foreground="White" FontSize="20" BorderThickness="0"/>
+                    </Border>
+                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
+                        <ListBox Name="TODOListBox" Margin="5" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                            <Border CornerRadius="10" Width="{Binding ElementName=TODOListBox, Path=ActualWidth}">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="10" Direction="370" Opacity="0.1" Color="Black" />
+                                </Border.Effect>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Border Grid.Row="0" CornerRadius="5" Width="100" Background="LightGray" HorizontalAlignment="Left" BorderThickness="1" Margin="5 3 0 0" >
+                                        <Label HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center">Sat, Oct 30</Label>
+                                    </Border>
+                                    <Border Grid.Row="0" CornerRadius="5" Width="100" Background="IndianRed" HorizontalAlignment="Right" BorderThickness="1" Margin="5 3 15 0" >
+                                        <Label HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center">Wed, Nov 1</Label>
+                                    </Border>
 
-                                <TextBlock x:Name="Description" Margin="10,0" TextWrapping="Wrap" Grid.Row="2" Background="White" Foreground="Black" HorizontalAlignment="Center">Добавление задачи: Пользователь должен иметь возможность создавать новые задачи, указывая название, описание, приоритет, дедлайн и другие свойства.</TextBlock>
+                                    <TextBlock Grid.Row="2" Margin="10,0" HorizontalAlignment="Center">Название</TextBlock>
+                                    <TextBlock Margin="10,0" TextWrapping="Wrap" Grid.Row="3" Foreground="Black" HorizontalAlignment="Center">Добавление задачи: Пользователь должен иметь возможность создавать новые задачи, указывая название, описание, приоритет, дедлайн и другие свойства.</TextBlock>
 
-                                <Border Background="LightGray" CornerRadius="0 0 10 10" Grid.Row="3" >
-                                    <Label Foreground="Gray" HorizontalAlignment="Left">KANB-1005</Label>
-                                </Border>
-                            </Grid>
-                        </Border>
-                    </ListBox>
-                </ScrollViewer>
-                <Border Grid.Row="3" CornerRadius="5" Width="250" Background="White" BorderBrush="Black" BorderThickness="1">
-                    <Button  Background="Transparent" Content="+" FontSize="20" BorderThickness="0"/>
-                </Border>
-            </Grid>
-        </Border>
-    </StackPanel>
+                                    <Border Background="LightGray" CornerRadius="0 0 10 10" Grid.Row="4" >
+                                        <Label Foreground="Gray" HorizontalAlignment="Left">KANB-1005</Label>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </ListBox>
+                    </ScrollViewer>
+                    <Border Grid.Row="3" CornerRadius="5" Width="250" Background="White" BorderBrush="Black" BorderThickness="1">
+                        <Button  Background="Transparent" Content="+" FontSize="20" BorderThickness="0"/>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border Background="WhiteSmoke" CornerRadius="10"  Margin="10,20" Width="300">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="50" ShadowDepth="10" Direction="370" Opacity="0.1" Color="Black" />
+                </Border.Effect>
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border CornerRadius="5" Background="#FFCF40">
+                        <Label Background="Transparent" Content="В процессе" Foreground="White" FontSize="20" BorderThickness="0"/>
+                    </Border>
+                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
+                        <ListBox Name="InProgressListBox" Margin="5" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                            <Border CornerRadius="10" Width="{Binding ElementName=InProgressListBox, Path=ActualWidth}">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="10" Direction="370" Opacity="0.1" Color="Black" />
+                                </Border.Effect>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Border Grid.Row="0" CornerRadius="5" Width="100" Background="LightGray" HorizontalAlignment="Left" BorderThickness="1" Margin="5 3 0 0" >
+                                        <Label HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center">Sat, Oct 30</Label>
+                                    </Border>
+                                    <Border Grid.Row="0" CornerRadius="5" Width="100" Background="IndianRed" HorizontalAlignment="Right" BorderThickness="1" Margin="5 3 15 0" >
+                                        <Label HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center">Wed, Nov 1</Label>
+                                    </Border>
+
+                                    <TextBlock Grid.Row="2" Margin="10,0" HorizontalAlignment="Center">Название</TextBlock>
+                                    <TextBlock Margin="10,0" TextWrapping="Wrap" Grid.Row="3" Foreground="Black" HorizontalAlignment="Center">Добавление задачи: Пользователь должен иметь возможность создавать новые задачи, указывая название, описание, приоритет, дедлайн и другие свойства.</TextBlock>
+
+                                    <Border Background="LightGray" CornerRadius="0 0 10 10" Grid.Row="4" >
+                                        <Label Foreground="Gray" HorizontalAlignment="Left">KANB-1005</Label>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </ListBox>
+                    </ScrollViewer>
+                    <Border Grid.Row="3" CornerRadius="5" Width="250" Background="White" BorderBrush="Black" BorderThickness="1">
+                        <Button  Background="Transparent" Content="+" FontSize="20" BorderThickness="0"/>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border Background="WhiteSmoke" CornerRadius="10"  Margin="10,20" Width="300">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="50" ShadowDepth="10" Direction="370" Opacity="0.1" Color="Black" />
+                </Border.Effect>
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Border CornerRadius="5" Background="Green">
+                        <Label Background="Transparent" Content="Завершено" Foreground="White" FontSize="20" BorderThickness="0"/>
+                    </Border>
+                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
+                        <ListBox Name="DoneListBox" Margin="5" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                            <Border CornerRadius="10" Width="{Binding ElementName=DoneListBox, Path=ActualWidth}">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="10" Direction="370" Opacity="0.1" Color="Black" />
+                                </Border.Effect>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Border Grid.Row="0" CornerRadius="5" Width="100" Background="LightGray" HorizontalAlignment="Left" BorderThickness="1" Margin="5 3 0 0" >
+                                        <Label HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center">Sat, Oct 30</Label>
+                                    </Border>
+                                    <Border Grid.Row="0" CornerRadius="5" Width="100" Background="IndianRed" HorizontalAlignment="Right" BorderThickness="1" Margin="5 3 15 0" >
+                                        <Label HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center">Wed, Nov 1</Label>
+                                    </Border>
+
+                                    <TextBlock Grid.Row="2" Margin="10,0" HorizontalAlignment="Center">Название</TextBlock>
+                                    <TextBlock Margin="10,0" TextWrapping="Wrap" Grid.Row="3" Foreground="Black" HorizontalAlignment="Center">Добавление задачи: Пользователь должен иметь возможность создавать новые задачи, указывая название, описание, приоритет, дедлайн и другие свойства.</TextBlock>
+
+                                    <Border Background="LightGray" CornerRadius="0 0 10 10" Grid.Row="4" >
+                                        <Label Foreground="Gray" HorizontalAlignment="Left">KANB-1005</Label>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </ListBox>
+                    </ScrollViewer>
+                    <Border Grid.Row="3" CornerRadius="5" Width="250" Background="White" BorderBrush="Black" BorderThickness="1">
+                        <Button  Background="Transparent" Content="+" FontSize="20" BorderThickness="0"/>
+                    </Border>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
 </Window>
