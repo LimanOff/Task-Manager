@@ -22,7 +22,7 @@
                         <Label Background="Transparent" Content="Сделать" Foreground="White" FontSize="20" BorderThickness="0"/>
                     </Border>
                     <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
-                        <ListBox Name="TODOListBox" Margin="5" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                        <ListBox Name="TODOListBox" DataContext="{Binding RelativeSource={RelativeSource Self}}" Margin="5" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                             <Border CornerRadius="10" Width="{Binding ElementName=TODOListBox, Path=ActualWidth}">
                                 <Border.Effect>
                                     <DropShadowEffect BlurRadius="10" ShadowDepth="10" Direction="370" Opacity="0.1" Color="Black" />
@@ -36,24 +36,31 @@
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
                                     <Border Grid.Row="0" CornerRadius="5" Width="100" Background="LightGray" HorizontalAlignment="Left" BorderThickness="1" Margin="5 3 0 0" >
-                                        <Label HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center">Sat, Oct 30</Label>
+                                        <Label Content="{Binding Path=CreatedDate}" HorizontalAlignment="Center" Foreground="Gray" VerticalAlignment="Center"></Label>
                                     </Border>
                                     <Border Grid.Row="0" CornerRadius="5" Width="100" Background="IndianRed" HorizontalAlignment="Right" BorderThickness="1" Margin="5 3 15 0" >
-                                        <Label HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center">Wed, Nov 1</Label>
+                                        <Label Content="{Binding Path=DeadlineDate}" HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center"></Label>
+                                    </Border>
+                                    <Border Grid.Row="1" CornerRadius="5" Width="100" Background="LightCyan" BorderThickness="1" Margin="5 3 15 0" >
+                                        <ComboBox Name="taskPriorityCB" SelectedValuePath="TaskType">
+                                            <Label>Low</Label>
+                                            <Label>Normal</Label>
+                                            <Label>High</Label>
+                                        </ComboBox>
                                     </Border>
 
-                                    <TextBlock Grid.Row="2" Margin="10,0" HorizontalAlignment="Center">Название</TextBlock>
-                                    <TextBlock Margin="10,0" TextWrapping="Wrap" Grid.Row="3" Foreground="Black" HorizontalAlignment="Center">Добавление задачи: Пользователь должен иметь возможность создавать новые задачи, указывая название, описание, приоритет, дедлайн и другие свойства.</TextBlock>
+                                    <TextBlock Text="{Binding Path=Name}" Grid.Row="2" Margin="10,0" HorizontalAlignment="Center"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Description}" Margin="10,0" TextWrapping="Wrap" Grid.Row="3" Foreground="Black" HorizontalAlignment="Center"></TextBlock>
 
                                     <Border Background="LightGray" CornerRadius="0 0 10 10" Grid.Row="4" >
-                                        <Label Foreground="Gray" HorizontalAlignment="Left">KANB-1005</Label>
+                                        <Label Content="{Binding Path=Id}" Foreground="Gray" HorizontalAlignment="Left"></Label>
                                     </Border>
                                 </Grid>
                             </Border>
                         </ListBox>
                     </ScrollViewer>
                     <Border Grid.Row="3" CornerRadius="5" Width="250" Background="White" BorderBrush="Black" BorderThickness="1">
-                        <Button  Background="Transparent" Content="+" FontSize="20" BorderThickness="0"/>
+                        <Button x:Name="TODO" Background="Transparent" Content="+" FontSize="20" BorderThickness="0" Click="AddNewTask_Click"/>
                     </Border>
                 </Grid>
             </Border>
@@ -90,6 +97,13 @@
                                     <Border Grid.Row="0" CornerRadius="5" Width="100" Background="IndianRed" HorizontalAlignment="Right" BorderThickness="1" Margin="5 3 15 0" >
                                         <Label HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center">Wed, Nov 1</Label>
                                     </Border>
+                                    <Border Grid.Row="1" CornerRadius="5" Width="100" Background="LightCyan" BorderThickness="1" Margin="5 3 15 0" >
+                                        <ComboBox>
+                                            <Label>Low</Label>
+                                            <Label>Normal</Label>
+                                            <Label>High</Label>
+                                        </ComboBox>
+                                    </Border>
 
                                     <TextBlock Grid.Row="2" Margin="10,0" HorizontalAlignment="Center">Название</TextBlock>
                                     <TextBlock Margin="10,0" TextWrapping="Wrap" Grid.Row="3" Foreground="Black" HorizontalAlignment="Center">Добавление задачи: Пользователь должен иметь возможность создавать новые задачи, указывая название, описание, приоритет, дедлайн и другие свойства.</TextBlock>
@@ -102,7 +116,7 @@
                         </ListBox>
                     </ScrollViewer>
                     <Border Grid.Row="3" CornerRadius="5" Width="250" Background="White" BorderBrush="Black" BorderThickness="1">
-                        <Button  Background="Transparent" Content="+" FontSize="20" BorderThickness="0"/>
+                        <Button x:Name="InProcess" Click="AddNewTask_Click" Background="Transparent" Content="+" FontSize="20" BorderThickness="0"/>
                     </Border>
                 </Grid>
             </Border>
@@ -139,6 +153,13 @@
                                     <Border Grid.Row="0" CornerRadius="5" Width="100" Background="IndianRed" HorizontalAlignment="Right" BorderThickness="1" Margin="5 3 15 0" >
                                         <Label HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center">Wed, Nov 1</Label>
                                     </Border>
+                                    <Border Grid.Row="1" CornerRadius="5" Width="100" Background="LightCyan" BorderThickness="1" Margin="5 3 15 0" >
+                                        <ComboBox>
+                                            <Label>Low</Label>
+                                            <Label>Normal</Label>
+                                            <Label>High</Label>
+                                        </ComboBox>
+                                    </Border>
 
                                     <TextBlock Grid.Row="2" Margin="10,0" HorizontalAlignment="Center">Название</TextBlock>
                                     <TextBlock Margin="10,0" TextWrapping="Wrap" Grid.Row="3" Foreground="Black" HorizontalAlignment="Center">Добавление задачи: Пользователь должен иметь возможность создавать новые задачи, указывая название, описание, приоритет, дедлайн и другие свойства.</TextBlock>
@@ -151,7 +172,7 @@
                         </ListBox>
                     </ScrollViewer>
                     <Border Grid.Row="3" CornerRadius="5" Width="250" Background="White" BorderBrush="Black" BorderThickness="1">
-                        <Button  Background="Transparent" Content="+" FontSize="20" BorderThickness="0"/>
+                        <Button x:Name="Done" Click="AddNewTask_Click" Background="Transparent" Content="+" FontSize="20" BorderThickness="0"/>
                     </Border>
                 </Grid>
             </Border>

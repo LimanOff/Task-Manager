@@ -1,4 +1,4 @@
-﻿namespace TaskManager_2.Data
+﻿namespace TaskManagerPozovaKuzychenkoPB42.DataBase.Data
 {
     public class User
     {

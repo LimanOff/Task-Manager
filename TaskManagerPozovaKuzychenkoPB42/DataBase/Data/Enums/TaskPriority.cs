@@ -1,4 +1,4 @@
-﻿namespace TaskManagerPozovaKuzychenkoPB42.Data.Enums
+﻿namespace TaskManagerPozovaKuzychenkoPB42.DataBase.Data.Enums
 {
     public enum TaskPriority
     {

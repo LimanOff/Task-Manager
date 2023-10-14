@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using TaskManagerPozovaKuzychenkoPB42.DataBase;
 
 namespace TaskManagerPozovaKuzychenkoPB42
 {
@@ -13,5 +14,6 @@ namespace TaskManagerPozovaKuzychenkoPB42
     /// </summary>
     public partial class App : Application
     {
+        public static MainContext MainContext = new MainContext();
     }
 }
